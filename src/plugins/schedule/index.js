@@ -14,7 +14,6 @@ const schedule = require('node-schedule');
 // │ │ └─────────────── hour (0 - 23)
 // │ └──────────────────── minute (0 - 59)
 // └───────────────────────── second (0 - 59, OPTIONAL)
-
 // 每分钟的第30秒触发： '30 * * * * *'
 //
 // 每小时的1分30秒触发 ：'30 1 * * * *'
@@ -24,7 +23,9 @@ const schedule = require('node-schedule');
 // 每月的1日1点1分30秒触发 ：'30 1 1 1 * *'
 //
 // 每周1的1点1分30秒触发 ：'30 1 1 * * 1'
-
-// var j = schedule.scheduleJob('42 * * * *', function(){
-//     console.log('The answer to life, the universe, and everything!');
-//   });
+function setSchedule(date, callback) {
+  schedule.scheduleJob(date, callback)
+}
+module.exports = {
+  setSchedule
+};
