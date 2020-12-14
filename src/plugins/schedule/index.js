@@ -44,7 +44,11 @@ function cancelSchedule(name) {
 const onPunchCardRemind = async (timer, remindTime, userName, remindName) => {
   setSchedule('everyDay', timer,  () => {
     // 间隔提醒
-    const remindTimer = `* * */${remindTime} * * *`;
+    const remindTimer = `0 */${remindTime} * * * *`;
+    let contact = await bot.bot.Contact.find({ name: userName });
+    let message = await getReplyMessage(remindTime);
+    await contact.say(message);
+
     setSchedule(remindName, remindTimer, async () => {
       let contact = await bot.bot.Contact.find({ name: userName });
       let message = await getReplyMessage(remindTime);

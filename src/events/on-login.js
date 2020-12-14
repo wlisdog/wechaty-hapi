@@ -11,6 +11,6 @@ async function onLogin (user) {
 
 async function onLoginInit () {
   await onToWorkMyGirl();
-  await onPunchCardRemind("* 30 18 * * *", 5, 'Lex.', 'toLexInterval');
+  await onPunchCardRemind("0 0 18 * * *", 5, 'Lex.', 'toLexInterval');
 }
 module.exports = onLogin;
