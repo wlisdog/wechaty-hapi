@@ -42,7 +42,7 @@ function cancelSchedule(name) {
  * @param {String} userName   用户微信名称 例: Lex.
  */
 const onPunchCardRemind = async (timer, remindTime, userName, remindName) => {
-  setSchedule('everyDay', timer,  () => {
+  setSchedule('everyDay', timer,  async() => {
     // 间隔提醒
     const remindTimer = `0 */${remindTime} * * * *`;
     let contact = await bot.bot.Contact.find({ name: userName });
