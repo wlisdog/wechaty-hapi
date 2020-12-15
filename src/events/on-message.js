@@ -25,7 +25,7 @@ async function onEmojiToImage(message) {
   let url;
   if (return_text.indexOf('emoji') > -1) {
     url = return_text.split('cdnurl=')[1].split('designerid')[0];
-    url = url.substring(1, url.length - 2);
+    // url = url.substring(1, url.length - 2);
     if (url.indexOf('emoji') > -1) {
       await message.say(url);
     } else {
